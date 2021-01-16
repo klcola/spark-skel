@@ -1,2 +1,50 @@
-# spark-skel
-This is a spark skeleton project for users to create a spark project which is managed by sbt.
+# spark-skel 项目
+
+这是一个 spark 骨架项目，目的是为了方便大家创建一个使用 sbt 管理的、编程语言为 scala 的 spark 项目。
+
+
+## 如何使用本项目？
+在 bash 环境中运行
+```bash
+git clone https://github.com/klcola/spark-skel.git testskel
+```
+即可在当前目录下创建名称为 testskel 的项目文件夹。你可以将 `testskel` 替换成你自己的项目文件夹名。你可以随后用 IDEA 或者
+其他常用的编程工具打开这个文件夹开始编写程序。
+
+
+## 如何编译项目？
+请在编译前总是运行 
+```bash
+sbt clean 
+```
+命令，以清除之前编译活动可能产生的缓存文件。
+
+### 编译项目（不生成 jar 文件）
+```bash
+sbt compile
+```
+
+### 编译项目（生成轻量级 jar 文件）
+请使用
+```bash
+sbt package
+```
+命令编译项目并生成**轻量级**的 jar 文件。 该轻量级 jar 文件只包含项目自身创建的类/对象/特征，不包含任何的依赖库文件。
+具体配置可以参考 build.sbt 文件中的说明。
+
+### 编译项目（生成重量级 jar 文件）
+请使用
+```bash
+sbt assembly
+```
+命令编译项目并生成**重量级**的 jar 文件。 该重量级 jar 文件除了包含项目自身创建的类/对象/特征 外，还包含指定的的依赖库文件。
+具体配置可以参考 build.sbt 文件中的说明。
+
+**请注意：** 使用本命令需要 sbt-assembly 插件，该插件的具体配置已经被包含到 project/plugins.sbt 文件中。
+
+
+## 版权及免责声明
+本程序是开源软件，您可以根据 MIT 通用公共许可证条款，使用、复制、修改、合并、出版发行、散布、再授权及贩售软件及软件的副本。
+您还可以根据程序的需要修改授权条款为适当的内容。我们发布这个程序是希望它有用，但没有任何保证；甚至没有对适销性或对特定用途的
+适用性的默示保证。有关更多细节，请参阅 MIT 许可证。本程序应该带有一份 MIT 许可证。如果没有，请参见
+https://mit-license.org/ 。
